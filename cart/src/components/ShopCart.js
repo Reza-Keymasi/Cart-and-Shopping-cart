@@ -25,6 +25,7 @@ const ShopCart = () => {
                     </div>
                 </div>
             }
+            
             {
                 state.checkout && 
                 <div>
@@ -32,6 +33,7 @@ const ShopCart = () => {
                     <Link to="/products">Buy More</Link>
                 </div>
             }
+
             {
                 !state.checkout && state.itemsCounter === 0 && 
                 <div>
