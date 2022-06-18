@@ -15,7 +15,7 @@ const Navbar = () => {
         <div>
             <Link to="/products">Products</Link>
             <div>
-               <Link to="/cart"> <img src={Cart} style={{width: "50px", height: "50px", color: "blue"}} alt="shop"/></Link>
+               <Link to="/cart"> <img src={Cart} style={{width: "40px"}} alt="shop"/></Link>
                 <span>{state.itemsCounter}</span>
             </div>
         </div>
