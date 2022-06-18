@@ -7,6 +7,7 @@ const initialState = {
     checkout : false
 }
 
+// count number of items and total price
 const sumItems = items => {
     const itemsCounter = items.reduce((total, product) => total + product.quantity, 0);
     let total = items.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
@@ -26,13 +27,14 @@ const cartReducer = (state, action) => {
                 ...state,
                 selectedItems: [...state.selectedItems],
                 ...sumItems(state.selectedItems),
+                checkout : false,
             }
         case "REMOVE_ITEM":
-            const newSelectedItems = state.selectedItems.filter(item => item.id !== action.payload);
+            const newSelectedItems = state.selectedItems.filter(item => item.id !== action.payload.id);
             return {
                 ...state,
                 selectedItems: [...newSelectedItems],
-                ...sumItems(state.selectedItems),
+                ...sumItems(newSelectedItems),
             }
 
         case "INCREASE":
